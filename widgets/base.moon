@@ -11,14 +11,28 @@ class Base extends Widget
   inner_content: =>
 
   content: =>
-    element @elm_type or "div", {
-      class: @widget_classes!
-      -- id: @widget_id!
-    }, @\inner_content
+    div class: "wrapper", ->
+      div class: "columns", ->
+        div class: "sidebar", ->
+          h1 "Mr. Justin Keenan"
+          div class: "navigation", ->
+            div class: "item", ->
+              a href: "", "About"
 
-    if @js_init
-      script type: "text/javascript", ->
-        rawtext @js_init! or ""
+            div class: "item", ->
+              a href: "", "Works"
+
+            div class: "item", ->
+              a href: "", "Twitter"
+
+        div class: "main", ->
+          element @elm_type or "div", {
+            class: @widget_classes!
+          }, @\inner_content
+
+          if @js_init
+            script type: "text/javascript", ->
+              rawtext @js_init! or ""
 
   widget_classes: =>
     @@widget_name!

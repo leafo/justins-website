@@ -2,27 +2,116 @@
   font-family: 'Gudea';
   font-style: normal;
   font-weight: 400;
-  src: url('www/fonts/Gudea/Gudea-Regular.ttf'); }
+  src: url('fonts/Gudea/Gudea-Regular.ttf'); }
 
 @font-face {
   font-family: 'Gudea';
   font-style: normal;
   font-weight: 600;
-  src: url('www/fonts/Gudea/Gudea-Bold.ttf'); }
+  src: url('fonts/Gudea/Gudea-Bold.ttf'); }
 
 @font-face {
   font-family: 'Gudea';
   font-style: italic;
   font-weight: 400;
-  src: url('www/fonts/Gudea/Gudea-Italic.ttf'); }
+  src: url('fonts/Gudea/Gudea-Italic.ttf'); }
 
 @font-face {
   font-family: 'Petrona';
   font-style: normal;
   font-weight: 400;
-  src: url('www/fonts/Petrona/Petrona-Regular.ttf'); }
+  src: url('fonts/Petrona/Petrona-Regular.ttf'); }
 
 body {
-  background: blue;
-  color: white;
-  font-family: Petrona; }
+  font-family: Petrona;
+  font-size: 24px;
+  margin: 0;
+  padding: 0; }
+
+a {
+  color: #db6855;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+.finger {
+  font-size: 34px;
+  display: inline-block;
+  vertical-align: -4px; }
+
+.back_button .finger {
+  margin-right: 8px; }
+
+.wrapper {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 20px;
+  background: #f4f4f4;
+  min-height: 100vh;
+  position: relative; }
+  .wrapper:after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: white; }
+  .wrapper:before {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: white; }
+
+.columns {
+  padding: 70px 80px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row; }
+  .columns .sidebar {
+    width: 300px; }
+    .columns .sidebar h1 {
+      font-weight: normal;
+      margin-top: 0;
+      margin-bottom: 50px;
+      font-size: 48px; }
+    .columns .sidebar .navigation {
+      font-size: 28px; }
+      .columns .sidebar .navigation .item {
+        margin: 25px 0; }
+        .columns .sidebar .navigation .item a {
+          color: inherit;
+          position: relative; }
+          .columns .sidebar .navigation .item a:before {
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            transform: translate(-10px, 0);
+            opacity: 0;
+            content: "☞";
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-left: 10px; }
+          .columns .sidebar .navigation .item a:hover {
+            text-decoration: none; }
+            .columns .sidebar .navigation .item a:hover:before {
+              opacity: 1;
+              transform: translate(0, 0); }
+  .columns .main {
+    margin-left: 100px;
+    max-width: 600px; }
+    .columns .main :first-child {
+      margin-top: 0; }
+    .columns .main h2 {
+      font-weight: normal;
+      margin-bottom: 5px; }
+    .columns .main .date {
+      color: #999; }
+    .columns .main p {
+      line-height: 1.5; }

@@ -18,4 +18,5 @@ sitegen.create =>
   build scssphp, "style.scss", "style.css"
 
   add "index.moon"
+  add "post.moon"
 

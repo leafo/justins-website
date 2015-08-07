@@ -1,6 +1,12 @@
-
 class Index extends require "widgets.base"
   inner_content: =>
+    div class: "back_button", ->
+      a href: "#", ->
+        span class: "finger", ->
+          raw "&#x261C;"
+
+        raw "Back "
+
     h2 "Love on mars"
     div class: "date", "November 10"
 
@@ -16,11 +22,6 @@ class Index extends require "widgets.base"
       bittersweet and deeply funny look at the sort of intimacy that only
       makes us lonelier.]]
 
-    div class: "post_meta", ->
-      a href: "#", ->
-        raw "More "
-        span class: "finger", ->
-          raw "&#x261E;"
 
 
 

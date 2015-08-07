@@ -1,35 +1,177 @@
 
+@mixin border_box {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    transition: $args;
+}
 
 @font-face {
     font-family: 'Gudea';
     font-style: normal;
     font-weight: 400;
-    src: url('www/fonts/Gudea/Gudea-Regular.ttf');
+    src: url('fonts/Gudea/Gudea-Regular.ttf');
 }
 
 @font-face {
     font-family: 'Gudea';
     font-style: normal;
     font-weight: 600;
-    src: url('www/fonts/Gudea/Gudea-Bold.ttf');
+    src: url('fonts/Gudea/Gudea-Bold.ttf');
 }
 
 @font-face {
     font-family: 'Gudea';
     font-style: italic;
     font-weight: 400;
-    src: url('www/fonts/Gudea/Gudea-Italic.ttf');
+    src: url('fonts/Gudea/Gudea-Italic.ttf');
 }
 
 @font-face {
     font-family: 'Petrona';
     font-style: normal;
     font-weight: 400;
-    src: url('www/fonts/Petrona/Petrona-Regular.ttf');
+    src: url('fonts/Petrona/Petrona-Regular.ttf');
 }
 
 body {
-    background: blue;
-    color: white;
-    font-family: Petrona
+    font-family: Petrona;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    color: #db6855;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.finger {
+    font-size: 34px;
+    display: inline-block;
+    vertical-align: -4px;
+}
+
+.back_button {
+    .finger {
+        margin-right: 8px;
+    }
+}
+
+
+.wrapper {
+    @include border_box;
+
+    margin: 20px;
+    background: #f4f4f4;
+    min-height: 100vh;
+
+    position: relative;
+
+    &:after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: white;
+    }
+
+    &:before {
+        content: "";
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: white;
+    }
+}
+
+.columns {
+    padding: 70px 80px;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-direction: row;
+    flex-direction: row;
+
+    .sidebar {
+        width: 300px;
+
+        h1 {
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 50px;
+            font-size: 48px;
+        }
+
+        .navigation {
+            font-size: 28px;
+
+            .item {
+                margin: 25px 0;
+
+                a {
+                    color: inherit;
+                    position: relative;
+
+                    &:before {
+                        @include transition(all 0.3s ease);
+                        transform: translate(-10px, 0);
+                        opacity: 0;
+                        content: "☞";
+                        position: absolute;
+                        top: 0;
+                        left: 100%;
+                        margin-left: 10px;
+                    }
+
+                    &:hover {
+                        text-decoration: none;
+
+                        &:before {
+                            opacity: 1;
+                            transform: translate(0, 0);
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    .main {
+        margin-left: 100px;
+        max-width: 600px;
+
+        :first-child {
+            margin-top: 0;
+        }
+
+        h2 {
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #999;
+        }
+
+
+        p {
+            line-height: 1.5;
+        }
+    }
+
 }
